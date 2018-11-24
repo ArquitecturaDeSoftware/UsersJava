@@ -1,0 +1,22 @@
+version: "2"
+services:
+  users-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: restapi
+      MYSQL_USER: arqui
+      MYSQL_PASSWORD: 123
+    ports:
+      - "3306:3306"
+  users-ms:
+    build: .
+    ports:
+      - "4200:4200"
+    depends_on:
+      - users-db
+    environment:
+      MYSQL_URL: jdbc:mysql://users-db:3306/restapi
+    
+
+  
