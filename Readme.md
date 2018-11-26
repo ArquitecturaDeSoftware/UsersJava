@@ -1,2 +1,2 @@
 # Users
-Java + MySQL
+MS Java + MySQL
